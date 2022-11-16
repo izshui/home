@@ -1,0 +1,490 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0040)http://www.skyliteboom.com/tool/rmb.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>人民币金额（数字）大小写转换在线工具</title>
+<meta name="keywords" content="人民币大写,人民币金额大写,数字大写,数字大小写转换,人民币大写转换,阿拉伯数字,人民币小写,人民币大小写转换,人民币转换工具">
+<meta name="description" content="专业的金额或数字大小写转换工具，可将输入的阿拉伯（小写）数字转换为大写数字，在线操作，无需下载">
+<link href="./rmb/base.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.box {
+	width:950px;
+	margin-left:auto;
+	margin-right:auto;
+	line-height:180%;
+	font-size:13px;
+}
+h3 {
+	color:#e35d04;
+	text-align:center;
+	background:#e4efff;
+	font-size:14px;
+	padding:6px 0 4px 0
+}
+.button {
+	width:130px;
+	height:27px;
+	line-height:27px;
+	font-size:13px;
+	letter-spacing:0;
+	text-align:center;
+	color:#fff;
+	background:url(images/search.gif) no-repeat;
+	margin-left:65px;
+	border:none;
+	cursor:pointer
+}
+p {
+	margin:15px 0
+}
+.input2, .inputtext, .inputtext-bor {
+	height:30px;
+	line-height:30px
+}
+input {
+	font-size:14px;
+}
+#jg {
+	/* 显示框样式表*/
+FOTN-SIZE:14PX;
+	padding:3px;
+	border:1px solid #888;
+	width:96%;
+	text-align:right;
+}
+a:visited, a:link {
+	text-decoration:none;
+}
+* {
+	margin:0;
+}
+/*
+body {
+	background-color: #99CC66;
+}*/
+table {
+	border:2px solid #fff;
+}
+#main {
+	/* 包含表格层样式*/
+margin:150px auto 0 auto;
+	padding:20px;
+	background-color: #999966;
+	border-top:1px solid #FFF;
+	border-bottom:1px solid #FFF;
+}
+#copyright {
+	font-size:12px;
+	color:#555;
+	background-color: #CCCC66;
+	padding:3px;
+	text-align:center;
+	border:1px solid #eee;
+}
+</style>
+<script language="JavaScript" type="text/JavaScript">
+function convertCurrency(currencyDigits) { 
+// Constants: 
+    var MAXIMUM_NUMBER = 99999999999.99; 
+    // Predefine the radix characters and currency symbols for output: 
+    var CN_ZERO = "零"; 
+    var CN_ONE = "壹"; 
+    var CN_TWO = "贰"; 
+    var CN_THREE = "叁"; 
+    var CN_FOUR = "肆"; 
+    var CN_FIVE = "伍"; 
+    var CN_SIX = "陆"; 
+    var CN_SEVEN = "柒"; 
+    var CN_EIGHT = "捌"; 
+    var CN_NINE = "玖"; 
+    var CN_TEN = "拾"; 
+    var CN_HUNDRED = "佰"; 
+    var CN_THOUSAND = "仟"; 
+    var CN_TEN_THOUSAND = "万"; 
+    var CN_HUNDRED_MILLION = "亿"; 
+    var CN_SYMBOL = "人民币"; 
+    var CN_DOLLAR = "元"; 
+    var CN_TEN_CENT = "角"; 
+    var CN_CENT = "分"; 
+    var CN_INTEGER = "整"; 
+     
+// Variables: 
+    var integral;    // Represent integral part of digit number. 
+    var decimal;    // Represent decimal part of digit number. 
+    var outputCharacters;    // The output result. 
+    var parts; 
+    var digits, radices, bigRadices, decimals; 
+    var zeroCount; 
+    var i, p, d; 
+    var quotient, modulus; 
+     
+// Validate input string: 
+    currencyDigits = currencyDigits.toString(); 
+    if (currencyDigits == "") { 
+        alert("请输入小写金额！"); 
+        return ""; 
+    } 
+    if (currencyDigits.match(/[^,.\d]/) != null) { 
+        alert("小写金额含有无效字符！"); 
+        return ""; 
+    } 
+    if ((currencyDigits).match(/^((\d{1,3}(,\d{3})*(.((\d{3},)*\d{1,3}))?)|(\d+(.\d+)?))$/) == null) { 
+        alert("小写金额的格式不正确！"); 
+        return ""; 
+    } 
+     
+// Normalize the format of input digits: 
+    currencyDigits = currencyDigits.replace(/,/g, "");    // Remove comma delimiters. 
+    currencyDigits = currencyDigits.replace(/^0+/, "");    // Trim zeros at the beginning. 
+    // Assert the number is not greater than the maximum number. 
+    if (Number(currencyDigits) > MAXIMUM_NUMBER) { 
+        alert("金额过大，应小于1000亿元！"); 
+        return ""; 
+    } 
+     
+// Process the coversion from currency digits to characters: 
+    // Separate integral and decimal parts before processing coversion: 
+    parts = currencyDigits.split("."); 
+    if (parts.length > 1) { 
+        integral = parts[0]; 
+        decimal = parts[1]; 
+        // Cut down redundant decimal digits that are after the second. 
+        decimal = decimal.substr(0, 2); 
+    } 
+    else { 
+        integral = parts[0]; 
+        decimal = ""; 
+    } 
+    // Prepare the characters corresponding to the digits: 
+    digits = new Array(CN_ZERO, CN_ONE, CN_TWO, CN_THREE, CN_FOUR, CN_FIVE, CN_SIX, CN_SEVEN, CN_EIGHT, CN_NINE); 
+    radices = new Array("", CN_TEN, CN_HUNDRED, CN_THOUSAND); 
+    bigRadices = new Array("", CN_TEN_THOUSAND, CN_HUNDRED_MILLION); 
+    decimals = new Array(CN_TEN_CENT, CN_CENT); 
+    // Start processing: 
+    outputCharacters = ""; 
+    // Process integral part if it is larger than 0: 
+    if (Number(integral) > 0) { 
+        zeroCount = 0; 
+        for (i = 0; i < integral.length; i++) { 
+            p = integral.length - i - 1; 
+            d = integral.substr(i, 1); 
+            quotient = p / 4; 
+            modulus = p % 4; 
+            if (d == "0") { 
+                zeroCount++; 
+            } 
+            else { 
+                if (zeroCount > 0) 
+                { 
+                    outputCharacters += digits[0]; 
+                } 
+                zeroCount = 0; 
+                outputCharacters += digits[Number(d)] + radices[modulus]; 
+            } 
+            if (modulus == 0 && zeroCount < 4) { 
+                outputCharacters += bigRadices[quotient]; 
+                zeroCount = 0; 
+            } 
+        } 
+        outputCharacters += CN_DOLLAR; 
+    } 
+    // Process decimal part if there is: 
+    if (decimal != "") { 
+        for (i = 0; i < decimal.length; i++) { 
+            d = decimal.substr(i, 1); 
+            if (d != "0") { 
+                outputCharacters += digits[Number(d)] + decimals[i]; 
+            } 
+        } 
+    } 
+    // Confirm and return the final output string: 
+    if (outputCharacters == "") { 
+        outputCharacters = CN_ZERO + CN_DOLLAR; 
+    } 
+    if (decimal == "") { 
+        outputCharacters += CN_INTEGER; 
+    } 
+    outputCharacters = CN_SYMBOL + outputCharacters; 
+    return outputCharacters; 
+} 
+</script>
+<style type="text/css"></style></head>
+<body onload="setfocus()">
+<!-- 头部开始 -->
+<div id="header">
+  <div class="header_m"> <a href="https://izshui.github.io/home/"><img src="./dy/zshui.png" border="0"></a>
+  </div>
+</div>
+<div id="navbar"></div>
+<!-- 头部结束 -->
+<!--<div class="sitetop">
+    <div class="right">
+        <ul>
+        	</ul>
+    </div>
+</div>-->
+<div id="page">
+  <div id="middle">
+    <div class="top1"></div>
+    <div class="box_top"></div>
+    <div class="box">
+      <div class="conversation">
+        <div>
+          <h3>人民币小写在线转换V1.0</h3>
+        </div>
+        <div style="border-bottom:1px solid #e6e6e6; border-top:1px solid #e6e6e6; padding:15px 0; overflow:hidden; _zoom:1">
+          <div style="padding:30px 0; float:left; width:400px"> 小写金额：
+            <input name="Digits" type="text" id="Digits" class="inputtext" onfocus="this.className=&#39;inputtext-bor&#39;" onblur="this.className=&#39;inputtext&#39;" value="9999.99" size="40">
+            <br>
+            <br>
+            大写金额：
+            <input name="Result" type="text" class="input2" id="Result" size="40">
+            <br>
+            <br>
+            <input id="Convert" type="button" class="button" value="转换为大写金额" name="Convert" onclick="Result.value = convertCurrency(Digits.value);">
+		    <br>
+            <br>	
+		    <br>
+            <br>				
+ <script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"2375235750"},"bdText":"人民币小写在线转换成大写，支持通过在线计算器计算后直接转换","bdMini":"1","bdMiniList":false,"bdPic":"http://www.skyliteboom.com/
+ /ad.png","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js'+~(-new Date()/36e5)];</script>			
+          </div>
+          <div style="float:right; padding-right:70px; width:240px">
+          <table width="230" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#CCCC99">
+            <tbody><tr>
+              <td colspan="5" align="center"><div style="font-size:14px;color:#333;background-color: #E0CC98;padding:3px;text-align:center;font-weight:bold;border:1px solid #aaa;">最实用的在线计算器</div></td>
+            </tr>
+            <tr>
+              <td colspan="5"><input name="jg" id="jg" type="text" onkeyup="checkkey()"></td>
+            </tr>
+            <tr>
+              <td colspan="2" aling="right"><div id="sjxs" name="sjxs" style="text-align:center;height:20px;width:90px;background-color:#666;color:#fff;">11:41:06</div></td>
+              <td colspan="2" align="right"><input type="button" name="cls" value="Backspace" onclick="shanchu()"></td>
+              <td><input type="button" name="qc" id="qc" value="清空" onclick="qc()"></td>
+            </tr>
+            <tr>
+              <td width="37"><input type="button" name="s1" id="s1" value=" 1 " onclick="shu(1)" onkeyup="shu(1)"></td>
+              <td width="37"><input type="button" name="s2" id="s2" value=" 2 " onclick="shu(2)"></td>
+              <td width="41"><input type="button" name="s2" id="s2" value=" 3 " onclick="shu(3)"></td>
+              <td width="43"><label>
+                  <input type="button" name="jian2" id="jian2" value=" 加 " onclick="yunsuan(&quot;+&quot;)">
+                </label></td>
+              <td width="38"><input type="button" name="shijian" id="shijian" value="时间" onclick="timeshow()"></td>
+            </tr>
+            <tr>
+              <td><input type="button" name="s4" id="s4" value=" 4 " onclick="shu(4)"></td>
+              <td><input type="button" name="s5" id="s5" value=" 5 " onclick="shu(5)"></td>
+              <td><input type="button" name="s6" id="s6" value=" 6 " onclick="shu(6)"></td>
+              <td><input type="button" name="jian3" id="jian" value=" 减 " onclick="yunsuan(&quot;-&quot;)"></td>
+              <td><input type="button" name="pf" id="pf" value="平方" onclick="pf()"></td>
+            </tr>
+            <tr>
+              <td><input type="button" name="s7" id="s7" value=" 7 " onclick="shu(7)"></td>
+              <td><input type="button" name="s8" id="s8" value=" 8 " onclick="shu(8)"></td>
+              <td><input type="button" name="s9" id="s9" value=" 9 " onclick="shu(9)"></td>
+              <td><input type="button" name="cheng" id="cheng" value=" 乘 " onclick="yunsuan(&quot;x&quot;)"></td>
+              <td><input type="button" name="kf" id="kf" value="求根" onclick="kf()"></td>
+            </tr>
+            <tr>
+              <td><input type="button" name="s0" id="s0" value=" 0 " onclick="shu(0)"></td>
+              <td><input type="button" name="xs" id="xs" value=" . " onclick="shu(&quot;.&quot;)"></td>
+              <td><input type="button" name="deng" id="deng" value="等于" onclick="dengyu()"></td>
+              <td><input type="button" name="chu" id="chu" value=" 除 " onclick="yunsuan(&quot;/&quot;)"></td>
+              <td><input type="button" name="deng" id="deng" value="等于" onclick="dengyu()"></td>
+            </tr>
+            <tr>
+              <td colspan="5" height="20"></td>
+            </tr>
+          </tbody></table>
+          </div>
+        </div>
+        <p><strong>人民币金额用到的中文大写汉字如下</strong>：<br>
+          零、壹、贰、叁、肆、伍、陆、柒、捌、玖、拾、佰、仟、万、亿。<br>
+          <br>
+        </p>
+        <br>
+      </div>
+      <!--innerbox结束-->
+    </div>
+    <!--box结束-->
+    <div class="box_bottom"></div>
+    <div class="bottom1"></div>
+  </div>
+</div>
+<!-- 底部开始 -->
+<div id="footer">
+  <p>Copyright © 2021 - 2050<a href="https://izshui.github.io/home/">天天导航 慧天科技出品</a></p>
+</div>
+<!-- 底部结束 -->
+
+
+<script language="javascript">
+var a,b,c,d;
+function shu(x)
+{
+if (jg.value==0)
+	{
+	jg.value=x;
+	}
+else
+{
+	if (x==".")
+	{
+	var kk=jg.value
+	if (kk.indexOf(".")<0)
+	{jg.value=jg.value+x;}
+	}
+	else
+	{
+	jg.value=jg.value+x;
+	}
+}
+//programing by downyi.com
+}
+function yunsuan(y)
+{
+	switch (y)
+	{
+	case "+":
+	d="+"
+	break
+	case "-":
+	d="-"
+	break
+	case "x":
+	d="x"
+	break
+	case "/":
+	d= "/"
+	}
+a=Number(jg.value);
+jg.value=""
+}
+function dengyu()
+{
+b=Number(jg.value)
+if(a!=undefined && b!=0 && d!=undefined)
+{
+	switch (d)
+	{
+	case "+":
+		c=a+b;
+		break;
+	case "-":
+		c=a-b;
+		break;
+	case "x":
+		c=a*b;
+		break;
+	
+	case "/":
+		c=a/b;
+	}
+jg.value=c;
+a=0;
+b=0;
+d=undefined;
+Digits.value=c;
+Result.value = convertCurrency(Digits.value);
+}
+}
+function qc()
+{
+a=0;
+b=0;
+d=undefined;
+jg.value="0";
+}
+function shanchu()
+{
+var bs=jg.value;
+bs=bs.substr(0,bs.length-1);
+jg.value=bs;
+jg.focus();
+}
+function pf()
+{
+var h=Number(jg.value);
+if (h!=0)
+	{
+	h=h*h;
+	jg.value=h;
+	}
+}
+function jc()
+{
+var p=1;
+var q=parseInt(jg.value)
+if (q!=0 && q!=NaN)
+	{
+	for (i=1;i<=q;i++)
+		{
+		p=p*i;
+		}
+	jg.value=p;
+	}
+
+}
+function setfocus()
+{
+jg.focus();
+ts=startTime()
+}
+function kf()
+{
+if (jg.value!=".")
+{
+jg.value=Math.sqrt(Number(jg.value))
+}
+}
+
+function checkkey()
+{
+var p=/[^0-9]/
+if (p.test(jg.value)==true)
+{
+jg.value=""
+jg.focus
+}
+}
+function startTime()
+{
+var today=new Date()
+var h=today.getHours()
+var m=today.getMinutes()
+var s=today.getSeconds()
+m=checkTime(m)
+s=checkTime(s)
+document.getElementById('sjxs').innerHTML=h+":"+m+":"+s
+t=setTimeout('startTime()',500)
+}
+
+function checkTime(i)
+{
+if (i<10) 
+  {i="0" + i}
+  return i
+}
+function timeshow()
+{
+
+if (document.getElementById('sjxs').style.display!="none")
+{
+document.getElementById('sjxs').style.display="none"
+}
+else
+{
+document.getElementById('sjxs').style.display="block"
+}
+
+}
+
+</script>
+
+<div style="display:none"><script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-99189-7";
+urchinTracker();
+</script>
+</div></body></html>
