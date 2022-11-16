@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>FORM Text</title>
+	<link rel="stylesheet" id="templatecss" type="text/css" href="css/white-pink.css">
+</head>
+<body>
+	<form action="" method="post" class="white-pink">
+		<h1>留言
+			<span>请留下您的宝贵内容，让我们做的越来越好！</span>
+		</h1>
+		<label>
+			<span>模板选择 :</span>
+			<select id="template" name="themplate" onchange="changeStyle();">
+				<option value="elegant-aero">优雅模板</option>
+				<option value="bootstrap-frm">自荐模板</option>
+			</select>
+		</label>
+		<label>
+			<span>你的名字 :</span>
+			<input id="name" type="text" name="name" placeholder="您的尊姓大名" />
+		</label>
+		<label>
+			<span>你的邮箱 :</span>
+			<input id="email" type="email" name="email" placeholder="您的网络地址" />
+		</label>
+
+		<label>
+			<span>信息 :</span>
+			<textarea id="message" name="message" placeholder="您要反馈的信息！"></textarea>
+		</label>
+		<label>
+			<span>反馈主题 :</span><select name="selection">
+				<option value="Job Inquiry">工作查询</option>
+				<option value="General Question">一般问题</option>
+			</select>
+		</label>
+		<label>
+			<span>&nbsp;</span>
+			<input type="button" class="button" value="发送" />
+		</label>
+	</form>
+	<script>
+		function changeStyle() {
+	   var template = document.getElementById("template");
+     var index = template.selectedIndex;
+	   var templatevalue = template.options[index].value;
+	   var templatecss = document.getElementById("templatecss");
+	   templatecss.setAttribute("href","css/" + templatevalue + ".css");
+	   document.getElementsByTagName("form")[0].setAttribute("class",templatevalue);
+	 }
+	</script>
+</body>
+</html>
