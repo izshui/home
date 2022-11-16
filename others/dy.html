@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://www.bewindoweb.com/305.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>免费订阅节点 | 天天导航</title>
+    <meta http-equiv="Content-Language" content="Microsoft YaHei">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+    <meta name="author" content="BEWINDOWEB">
+    <link rel="stylesheet" href="./dy/font-awesome.min.css">
+    <link rel="stylesheet" href="./dy/article.css">
+    <script src="./dy/jquery-3.0.0.min.js"></script>
+    <script src="./dy/action.js"></script>
+    <link rel="stylesheet" type="text/css" href="./dy/prettify.css">
+    <script type="text/javascript" src="./dy/prettify.js"></script>
+    <script type="text/javascript" src="./dy/lang-matlab.js"></script>
+    <link rel="stylesheet" type="text/css" href="./dy/OwO.min.css">
+    <script type="text/javascript" src="./dy/OwO.min.js"></script>
+    <link rel="stylesheet" href="./dy/global.css">
+</head>
+
+<body><!--onload="prettyPrint()">-->
+	<!-- header -->
+    <div class="global-header-bg">
+    <div class="global-header-body">
+        <div class="global-header-logo">
+            <img class="zoompic" src="./dy/zshui.png">
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function domenu(){
+        var a = document.getElementById("menu");
+        if (a.className == "global-header-mobile-menuwrap")
+            a.className = "global-header-mobile-menuwrap menuactive";
+        else
+            a.className = "global-header-mobile-menuwrap";
+
+    }
+</script>
+	<!-- body -->
+
+	<div class="global-body">
+        <div class="card-side-container">
+</div>
+
+<script>
+    $(function(){
+        var notdefault = 0;
+        $('.card-article-text').find('h1,h2').each(function(index,item){
+            notdefault = 1;
+            $(this).attr('id','c'+index);
+            var headerText=$(this).text();
+            var tagName=$(this)[0].tagName.toLowerCase();
+            var tagIndex=parseInt(tagName.charAt(1));
+            //设置不同等级header的排列及缩进样式
+            if (tagIndex == 1)//href="#c'+index+'"
+                $('#category').append($('<a name=c'+index+' class="cbtn article-ch'+tagIndex+'" >'+headerText+'</a>'));
+            else
+                $('#category').append($('<a name=c'+index+' class="cbtn article-ch'+tagIndex+'" ><i class="fa fa-fw fa-leaf"></i> '+headerText+'</a>'));
+
+        });
+        if (notdefault == 0){
+            $('#c-default').css('display','block');
+        }
+
+        var navH = $("#category-ct").offset().top;
+        //滚动条事件
+        $(window).scroll(function(){
+            //获取滚动条的滑动距离
+            var scroH = $(this).scrollTop();
+            //滚动条的滑动距离大于等于定位元素距离浏览器顶部的距离，就固定
+            if(scroH>=navH){
+                $("#category-ct").css({position: 'fixed'});
+                $("#category-ct").animate({top: '30px'},1000);
+            }
+            else{
+                $("#category-ct").css({position: 'static',top:'0px'});
+            }
+        });
+
+        $(document).on('click', '.cbtn', function(e) {
+            $('html,body').animate({scrollTop: $("#" + this.name).offset().top}, 500);
+            //document.getElementById($(this).attr('name')).scrollIntoView()
+           // onclick="javascript:document.getElementById('+'\'c3\''+').scrollIntoView()
+        });
+
+    });
+
+</script>        <div class="global-card card-page">
+            <div class="card-article-pic" style="background-image:url(&#39;./dy/default_pic_big.jpg&#39;)" ;="">
+            </div>
+            <div class="card-article-class" classname="免费订阅节点">
+            </div>
+
+            <div class="card-article-info">
+                <div class="card-article-title">
+                    订阅链接</div>
+                <a>最后更新于2021年04月23日 / </a>
+                <a>524185次浏览 / </a>
+                <a><span id="cb_article_upcount_305">500次点赞 / </span></a>
+                <a>658条评论</a>
+            </div>
+            <div class="card-article-endtag">
+                <a class="card-article-tag" style="margin-right:3px"><i class="fa fa-fw fa-tags"></i> </a>
+                <a href="https://fanqiang.network/" target="_blank" class="card-article-tag"> 免费节点</a><a href="https://izshui.github.io/home/" target="_blank" class="card-article-tag">，返回主页！</a>
+            </div>
+            <div class="card-article-container">
+                <div class="card-article-text">
+                    <h1 id="c0">一、Clash订阅</h1>
+					<h2 id="c2">工具大师</h2>
+								<p>https://sub.789.st/sub?target=clashr&url=https%3A%2F%2Fraw.githubusercontent.com%2Ffoursquare961%2F1.23%2Fmain%2Fv2ray</p>
+					<h2 id="c2">Github</h2>
+								<p>https://sub.789.st/sub?target=clashr&url=https%3A%2F%2Fraw.githubusercontent.com%2Ffreefq%2Ffree%2Fmaster%2Fv2</p>			
+					<h2 id="c2">翻墙大师</h2>
+								<p>https://sub.789.st/sub?target=clashr&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcdp2020%2Fv2ray%2Fmaster%2FREADME.md</p>			
+					<h1 id="c0">二、V2Ray订阅</h1>
+					<h2 id="c2">工具大师</h2>
+								<p>https://raw.githubusercontent.com/foursquare961/1.23/main/v2ray</p>
+					<h2 id="c2">Github</h2>
+								<p>https://raw.githubusercontent.com/freefq/free/master/v2</p>			
+					<h2 id="c2">翻墙大师</h2>
+								<p>https://raw.githubusercontent.com/cdp2020/v2ray/master/README.md</p>				
+				</div>
+            </div>
+        </div>
+	</div>
+	<div id="gotoTop" style="display: none;"><i class="fa fa-arrow-up fa-lg fa-fw"></i></div>
+	<!-- footer -->
+<div class="global-footer">
+		<div class="footer-container">
+			<div>
+                Copyright © 2021 - 2050
+                <a href="https://izshui.github.io/home/">天天导航 慧天科技出品</a>
+            </div>
+		</div>
+</div>
+</body></html>
