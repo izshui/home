@@ -1,0 +1,173 @@
+.card-article-text .w-e-text{
+    font-family: Microsoft YaHei, SimSun;
+    font-size:14px;
+    lineheight:30px;
+}
+.card-article-text h1,.w-e-text h1{
+    font-size:20px;
+    margin:0;
+    padding:0;
+    font-weight:bold;
+    text-indent:0;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+.card-article-text h2,.w-e-text h2{
+    font-size:16px;
+    margin:0;
+    padding:0;
+    font-weight:bold;
+    text-indent:0;
+}
+
+.card-article-text h3,.w-e-text h3{
+    color:#f2f2f2;
+    background-color:#e84c33;
+    margin:5px 0;
+    border-radius: 3px;
+    padding: 0px 8px;
+    display:inline-block;
+    font-weight:normal;
+    line-height:30px;
+    font-size:14px;
+}
+
+.card-article-text h4,.w-e-text h4{
+    font-size:12px;
+    margin:0;
+    padding:0;
+    color:#a2a2a2;
+    text-indent:0;
+    line-height:10px;
+    margin-top:15px;
+    margin-bottom:5px;
+}
+
+.card-article-text h5,.w-e-text h5{
+    font-size:12px;
+    margin:0;
+    padding:0;
+    color:#a2a2a2;
+    text-indent:0;
+    line-height:10px;
+    margin-bottom:15px;
+    margin-top:5px;
+}
+
+.card-article-text p,.w-e-text p{
+    margin:0;
+    padding:0;
+    font-size:14px;
+    line-height:30px;
+}
+.card-article-text blockquote,.w-e-text blockquote{
+    padding: 20px;
+    margin-bottom: 25px;
+    background-color: #f7f7f7;
+    border-left: 6px solid #b4b4b4;
+    word-break: break-word!important;
+    word-break: break-all;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    text-indent:0;
+}
+.card-article-text blockquote b,.w-e-text blockquote b{
+   white-space:normal;
+}
+
+.card-article-text a,.w-e-text a{
+    border-bottom:1px solid #478cdc;
+    color:#478cdc;
+    cursor: pointer;
+    line-height:15px;
+    margin:0px 5px;
+    white-space:normal;
+}
+.card-article-text a:hover,.w-e-text a:hover{
+    opacity:0.8;
+}
+.card-article-text a:active,.w-e-text a:active{
+    opacity:0.8;
+}
+
+.card-article-text img,.w-e-text img{
+    text-align: center;
+    margin:10px auto;
+    display:block;
+}
+.card-article-text .zoompic{
+    cursor:zoom-in;
+}
+
+
+.card-article-text table,.w-e-text table{
+    border-right:1px solid #c2c2c2;
+    width:auto;
+    margin:0 auto;
+    text-indent:0;
+}
+
+.card-article-text th,.w-e-text th{
+    text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    background: #f2f1f1;
+    border-top:1px solid #c2c2c2;
+    border-left:1px solid #c2c2c2;
+    border-bottom:1px solid #c2c2c2;
+    padding:5px 15px 5px 15px;
+}
+
+.card-article-text td,.w-e-text td{
+    text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    border-left:1px solid #c2c2c2;
+    border-bottom:1px solid #c2c2c2;
+    padding:5px 15px 5px 15px;
+}
+
+
+.card-article-text pre,.w-e-text pre{
+    background-color: #333;
+    border-radius: 3px;
+    padding: 3px 5px;
+    margin: 10px 3px;
+    overflow:hidden;
+}
+
+
+
+.card-article-text pre code,.w-e-text pre code{
+    display: block;
+    color:#e2e2e2;
+    background-color: #333;
+    font-family: Microsoft YaHei, SimSun;
+    font-size:14px;
+    padding-left:10px;
+    line-height:24px;
+    overflow-x:auto;
+}
+
+
+.card-article-text b,.w-e-text b{
+    white-space:normal;
+}
+
+.card-article-text code,.w-e-text code{
+    display: inline-block;
+    background-color:#f2f2f2;
+    color:#242424;
+    font-family: Microsoft YaHei, SimSun;
+    font-size:14px;
+    border-radius: 3px;
+    padding: 2px 10px;
+    margin: 0 3px;
+    line-height:18px;
+    text-indent:0;
+}
+
