@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://www.51ando.com/html/wq_gcgj_phone.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>录像计算工具</title>
+
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+<meta name="Keywords" content="录像计算工具">
+<meta name="Description" content="录像计算工具">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link href="./css/wq_gcgj_phone.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./js/jquery-1.6-min.js"></script>
+<script type="text/javascript" src="./js/wq_gcgj_phone.js"></script>
+<script type="text/javascript" src="./js/check_login.js"></script>
+</head>
+<body>
+<div class="body">
+    <div style="margin-top: 30px; margin-left: 10px;">
+                
+            <form action="https://www.51ando.com/html/wq_gcgj_phone.html" method="get" onsubmit="return check();">
+            <div class="wq_middle">
+                
+                <div class="wq_middle_div">计算方向选择：</div>
+                
+                <div class="wq_middle_div1" style="font-size: 14px;">
+                    <ul class="nav2" style="margin-left: 1em;">
+                        <li class="active1"><label style="overflow:hidden;"><p style="float:left; overflow:hidden;margin-top:0.08rem;"><input type="radio" name="cj" class="wq_radio" onclick="change(1);"></p><p style="float:left; overflow:hidden;">计算录像大小</p></label></li>
+                        <li class=""><label style="overflow:hidden;"><p style="float:left; overflow:hidden; margin-top:0.08rem;"><input type="radio" name="cj" class="wq_radio" value="2" onclick="change(2);"></p><p style="float:left; overflow:hidden; margin-top:0.08rem;">计算录像时间</p></label></li>
+                        <li class=""><label style="overflow:hidden;"><p style="float:left; overflow:hidden; margin-top:0.08rem;"><input type="radio" name="cj" class="wq_radio" value="3" onclick="change(3);"></p><p style="float:left; overflow:hidden; margin-top:0.08rem;">计算码率</p></label></li>
+                    </ul>
+                </div>
+                
+                  <!--计算录像大小start-->
+                 <div class="tab" style="font-size: 14px; display: block;">
+                 <!--码率选择-->
+                <div class="wq_middle_div1">
+                    <ul>
+                        <li class=" wq_middle_li">码率选择：</li>
+                        <li>
+                            <select class="wq_select" id="bps" onchange="showInput()">  
+                                     <option value="524288">512Kbps</option>
+                                     <option value="1048576">1Mbps</option>
+                                     <option value="2097152">2Mbps</option>
+                                     <option value="3145728">3Mbps</option>
+                                     <option value="4194304">4Mbps</option>
+                                     <option value="5242880">5Mbps</option>
+                                     <option value="6291456">6Mbps</option>
+                                     <option value="7340032">7Mbps</option>
+                                     <option value="8388608">8Mbps</option>
+                                     <option value="0">自定义</option>
+                            </select>
+                          </li>
+                          <li>
+                          <div id="bpsInputDiv" style="display:none; overflow: hidden; "> 
+                                    <div class="wq_bpsInputDiv1">
+                                        <input id="bpsInput" type="text" style="" class="wq_text_1">
+                                     </div>
+                                     <div class="wq_bpsInputDiv2">
+                                         <select id="bpsInputUnit" class="wq_select1"> 
+                                            <option value="1048576">Mbps</option> 
+                                            <option value="1024">Kbps</option> 
+                                         </select>
+                                     </div>
+                           </div>
+                          </li>
+                            <li> 
+                               
+                        </li>
+                    </ul>
+                </div>
+                
+                 <!--摄像头数量-->
+                <div class="wq_middle_div1">
+                    <ul>
+                        <li class=" wq_middle_li">摄像头数量：</li>
+                       
+                          <li>
+                          <div id="bpsInputDiv" style=""> 
+                                     <input id="num" type="text" class="wq_text1">
+                                     <span>个</span>
+                           </div>
+                          </li>
+                           
+                    </ul>
+                </div>
+                
+                <!--存储时间-->
+                <div class="wq_middle_div1">
+                    <ul>
+                        <li class=" wq_middle_li">存储时间：</li>
+                       
+                          <li>
+                          <div id="bpsInputDiv"> 
+                                     <input id="time" type="text" class="wq_text1">
+                           </div>
+                          </li>
+                          <li>
+                            <div id="time"> 
+                                    <select id="unit" class="wq_select"> 
+                                        <option value="86400" style=" color:#555555" selected="selected">天</option> 
+                                        <option value="3600" style=" color:#555555">小时</option>
+                                    </select>
+                              </div>
+                          </li>
+                           
+                    </ul>
+                </div>
+                
+              </div>
+              
+            </div>
+            <!--计算录像大小end-->
+            
+            
+            <!--计算录像时间start-->
+            <div class="tab" style="display: none;">
+                    <!--码率选择-->
+                    <div class="wq_middle_div1">
+                        <ul>
+                            <li class=" wq_middle_li">码率选择：</li>
+                            <li>
+                                <select class="wq_select" id="bps2" onchange="showInput2()"> 
+                                         <option value="524288">512Kbps</option>
+                                         <option value="1048576">1Mbps</option>
+                                         <option value="2097152">2Mbps</option>
+                                         <option value="3145728">3Mbps</option>
+                                         <option value="4194304">4Mbps</option>
+                                         <option value="5242880">5Mbps</option>
+                                         <option value="6291456">6Mbps</option>
+                                         <option value="7340032">7Mbps</option>
+                                         <option value="8388608">8Mbps</option>
+                                         <option value="0">自定义</option>
+                                   </select>
+                              </li>
+                              <li>
+                                <div id="bpsInputDiv2" style=" overflow:hidden;display:none;"> 
+                                    <div class="wq_bpsInputDiv1">
+                                        <input id="bpsInput2" type="text" style="" class="wq_text_1">
+                                     </div>
+                                     <div class="wq_bpsInputDiv2">
+                                         <select id="bpsInputUnit2" class="wq_select1"> 
+                                            <option value="1048576">Mbps</option> 
+                                            <option value="1024">Kbps</option> 
+                                        </select>
+                                     </div>
+                                </div>
+                             
+                              </li>
+                                
+                        </ul>
+                    </div>
+                    
+                     <!--硬盘总容量-->
+                    <div class="wq_middle_div1">
+                        <ul>
+                            <li class=" wq_middle_li">硬盘总容量：</li>
+    
+                                <li> 
+                                   <div id="bpsInputDiv2" style=""> 
+                                        <input id="volume2" class="wq_text1">
+                                        <select id="volume_unit2" class="wq_select"> 
+                                              <option value="1000000000000">T</option>
+                                              <option value="1000000000">G</option>
+                                        </select>
+                                  </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                     <!--摄像头数量-->
+                    <div class="wq_middle_div1">
+                        <ul>
+                            <li class=" wq_middle_li">摄像头数量：</li>
+    
+                                <li> 
+                                   <div id="bpsInputDiv2" style=""> 
+                                        <input id="num2" class="wq_text1">
+                                        <span>个</span>
+                                        
+                                  </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                   
+                
+            </div>
+            
+             <!--计算录像时间end-->
+             
+             
+             <!--计算码率start-->
+             <div class="tab" style="display: none;">
+                    
+                         <!--码率选择-->
+                    <div class="wq_middle_div1">
+                        <ul>
+                            <li class=" wq_middle_li">硬盘总容量：</li>
+    
+                                <li> 
+                                   <div id="bpsInputDiv2"> 
+                                        <input id="volume3" class="wq_text1">
+                                        <select id="volume_unit3" class="wq_select"> 
+                                              <option value="1000000000000">T</option>
+                                              <option value="1000000000">G</option>
+                                        </select>
+                                  </div>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    
+                    
+                    <!--摄像头数量-->
+                    <div class="wq_middle_div1">
+                        <ul>
+                            <li class=" wq_middle_li">摄像头数量：</li>
+    
+                                <li> 
+                                   <div id="bpsInputDiv2" style=""> 
+                                        <input id="num3" class="wq_text1">
+                                        <span>个</span>
+                                        
+                                  </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    
+                    <!--存储时间-->
+                <div class="wq_middle_div1">
+                    <ul>
+                        <li class=" wq_middle_li">存储时间：</li>
+                       
+                          <li>
+                          <div id="bpsInputDiv" style=""> 
+                                     <input id="time3" type="text" class="wq_text1">
+                           </div>
+                          </li>
+                          <li>
+                            <div style=""> 
+                                    <select id="time_unit3" class="wq_select"> 
+                                        <option value="86400" style=" color:#555555" selected="selected">天</option> 
+                                        <option value="3600" style=" color:#555555">小时</option> 
+                                    </select>
+                              </div>
+                          </li>
+                           
+                    </ul>
+                </div>
+                    
+             </div>
+             
+             <div style=" margin-left:6.5rem;">
+                      <input type="submit" class="js submit_button1" id="sys-start-btn" value="计算">
+                      <input type="reset" class="cz3" value="重置">
+              </div>
+              
+              <div style=" margin-top:1rem;margin-bottom:1rem;width:100%;" id="result"><div style=" border:1px solid orange; margin-right:1rem;background-color: #EEEEEE;"><p style="font-size:14px; padding-top:10px;padding-bottom:10px;margin-left:20px;">提醒： 计算结果仅供参考</p><p style="font-size:14px; margin-left:20px;padding-bottom:10px;padding-top:10px;">计算录像大小约为：<span style="color:#ff0000">14.8 TB</span></p></div></div>
+                
+             <!--计算码率end-->
+    </form>
+    
+    
+            
+            
+    </div>
+    
+    <div class="footer" style="text-align: center;">
+        <div class="wq_table">
+                <h4>常见分辨率、码率关系对照参考表</h4>
+                <ul style="background-color:#dcdddd;">
+                    <li class="wq_table_li1">名称</li>
+                    <li class="wq_table_li2">分辨率（像素）</li>
+                    <li class="wq_table_li3">码率</li>
+                    <li class="wq_table_li4">每小时硬盘容量</li>
+                </ul>
+                <ul style="">
+                    <li class="wq_table_li1">QCIF</li>
+                    <li class="wq_table_li2">176*144 </li>
+                    <li class="wq_table_li3">128Kb/s</li>
+                    <li class="wq_table_li4">56.25MB/H</li>
+                </ul>
+                  <ul>
+                    <li class="wq_table_li1">CIF</li>
+                    <li class="wq_table_li2">325*288</li>
+                    <li class="wq_table_li3">512Kb/s </li>
+                    <li class="wq_table_li4">225MB/H</li>
+                </ul>
+                 <ul>
+                    <li class="wq_table_li1">DCIF</li>
+                    <li class="wq_table_li2">528*384</li>
+                    <li class="wq_table_li3">0.7Mb/s </li>
+                    <li class="wq_table_li4">308MB/H</li>
+                </ul>
+                <ul>
+                    <li class="wq_table_li1">HaflD1</li>
+                    <li class="wq_table_li2">702*288</li>
+                    <li class="wq_table_li3">1Mb/s </li>
+                    <li class="wq_table_li4">439MB/H</li>
+                </ul>
+                 <ul>
+                    <li class="wq_table_li1">D1(4CIF)</li>
+                    <li class="wq_table_li2">704*576</li>
+                    <li class="wq_table_li3">1.5Mb/s </li>
+                    <li class="wq_table_li4">660MB/H</li>
+                </ul>
+                <ul>
+                    <li class="wq_table_li1">FULL D1</li>
+                    <li class="wq_table_li2">720*576</li>
+                    <li class="wq_table_li3">2Mb/s  </li>
+                    <li class="wq_table_li4">879MB/H</li>
+                </ul>
+                 <ul>
+                    <li class="wq_table_li1">720P</li>
+                    <li class="wq_table_li2">1280*720 </li>
+                    <li class="wq_table_li3">3Mb/s  </li>
+                    <li class="wq_table_li4">1.3GB/H</li>
+                </ul>
+                <ul>
+                    <li class="wq_table_li1">960P</li>
+                    <li class="wq_table_li2">1280*960 </li>
+                    <li class="wq_table_li3">3.5Mb/s  </li>
+                    <li class="wq_table_li4">1.5GB/H</li>
+                </ul>
+                <ul>
+                    <li class="wq_table_li1">1080P</li>
+                    <li class="wq_table_li2">1920*1080 </li>
+                    <li class="wq_table_li3">5Mb/s  </li>
+                    <li class="wq_table_li4">2.2GB/H</li>
+                </ul>
+                <ul>
+                    <li class="wq_table_li1">3MP</li>
+                    <li class="wq_table_li2">2048*1536 </li>
+                    <li class="wq_table_li3">7Mb/s  </li>
+                    <li class="wq_table_li4">3.1GB/H</li>
+                </ul>
+                <ul>
+                    <li class="wq_table_li1">4MP</li>
+                    <li class="wq_table_li2">2560*1440 </li>
+                    <li class="wq_table_li3">8Mb/s  </li>
+                    <li class="wq_table_li4">3.6GB/H</li>
+                </ul>
+                <ul>
+                    <li class="wq_table_li1">5MP</li>
+                    <li class="wq_table_li2">2592*2048 </li>
+                    <li class="wq_table_li3">10Mb/s  </li>
+                    <li class="wq_table_li4">4.5GB/H</li>
+                </ul>
+                <ul>
+                    <li class="wq_table_li1">8MP</li>
+                    <li class="wq_table_li2">3264*2448 </li>
+                    <li class="wq_table_li3">12Mb/s  </li>
+                    <li class="wq_table_li4">5.4GB/H</li>
+                </ul>
+                <ul>
+                    <li class="wq_table_li1">4K</li>
+                    <li class="wq_table_li2">3840*2160 </li>
+                    <li class="wq_table_li3">16Mb/s</li>
+                    <li class="wq_table_li4">7.03GB/H</li>
+                </ul>
+            </div>
+    </div>
+</div>
+<div class="bottom_div">Copyright © 2021-2050 版本：V4.1-22.0209 天天导航 慧天科技出品</div>
+
+
+</body></html>
