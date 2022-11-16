@@ -1,0 +1,195 @@
+@charset "utf-8";
+/* CSS Document */
+/*----------基础*/
+body{
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right:0px;
+	font-size:12px;
+	background-color:#FFFFFF;
+}
+ul li { list-style:none}
+a { font-size:12px; color:#004398; text-decoration:none}
+a:hover { font-size:12px; color:red; text-decoration:underline}
+/*----------顶部*/
+.sitetop{
+	height:29px;
+	background:url(/images/sitetop_bg.gif) repeat-x;
+	overflow:hidden;
+}
+.sitetop ul{
+	overflow:hidden;
+	float:left;
+	margin-top:8px;
+	display:inline;
+	list-style:none;
+}
+.sitetop ul li{
+	float:left;
+}
+.sitetop ul li a{
+	float:left;
+	display:block;
+	color:#666666;
+	height:13px;
+	text-decoration:none;
+	white-space:nowrap;
+}
+.sitetop ul li a:hover{
+	color:#FF3300;
+}
+.sitetop .right ul{
+	overflow:hidden;
+	float:right;
+	margin:8px 10px auto;
+	display:inline;
+	list-style:none;
+}
+.sitetop .right ul li{
+	width:70px;
+	float:right;
+	margin-left:-1px;
+}
+.sitetop .right ul li a{
+	float:right;
+	padding-left:10px;
+	padding-right:10px;
+	display:block;
+	color:#666666;
+	height:13px;
+	text-decoration:none;
+	white-space:nowrap;
+}
+.sitetop .right ul li a:hover{
+	color:#FF3300;
+}
+
+#header { width:100%; height:98px}
+#navbar { width:100%; height:22px; background:#698cc2}
+.header_m { width:950px; height:98px; margin-left:auto; margin-right:auto; position:relative}
+.header_m img { margin-top:8px}
+.header_m ul { width:130px; overflow:hidden; position:absolute; right:0; bottom:15px}
+.header_m ul li { float:left; width:65px; height:12px; text-align:center; border-right:1px solid #004398; margin-right:-1px}
+#footer {width:950px; margin-left:auto; margin-right:auto; margin-top:80px; border-top:5px solid #698cc3; text-align:center}
+#footer ul { width:550px; margin-left:auto; margin-right:auto; padding:10px 0 5px 0; overflow:hidden; _zoom:1}
+#footer ul li {  height:12px; float:left; padding:0 8px; border-right:1px solid #004398}
+#footer p { line-height:22px}
+/*----------转换*/
+.conversion{
+	margin:80px 0 10px 0;
+}
+.conversion .title{
+	text-align: center;
+}
+.conversion .title h1{
+	font-size: 23px;
+	line-height: 25px;
+	font-weight: bold;
+	color: #333333;
+	letter-spacing: 0.5em;
+	*letter-spacing: 1em;
+	word-spacing: 1em;
+}
+.conversion .title strong{
+	color: #FF0000;	
+}
+.conversion .search{
+	margin-top: 40px;
+	text-align: center;
+}
+.conversion .search .box .convert{
+	width:76px; height:27px; line-height:27px; font-size:14px; letter-spacing:2px; border:none; cursor:pointer; text-align:center; color:#fff; background:url(search.gif) no-repeat
+}
+.box1,.box2 {
+	width:184px;
+	height:22px;
+	line-height:22px;
+	border:1px solid #A9BAC9;
+	background:url(/images/bg_box1.gif) no-repeat #fff;
+	padding:0 3px;
+	font-size:18px;
+	text-indent: 3px;
+}
+.box2 { 
+	border:1px solid #9ECC00;
+}
+
+.conversion .search .box span{
+	font-size: 18px;
+}
+.conversion .search #Result{
+	height:30px;
+	margin-top:25px;
+	font-size: 22px;
+	letter-spacing: 3px;
+	font-family:"微软雅黑","黑体";
+	font-weight:100
+}
+#btn{
+	text-align:center;
+	margin-top:15px;
+}
+/*----------转换*/
+.written{
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	width:600px;
+	display:none;
+}
+
+.written .arabic{
+	padding-top:20px;
+	width:600px;
+	text-align:left;
+	padding-left:6px;
+	font-family:Verdana, Arial, Helvetica, sans-serif
+}
+.written .arabic ul{
+	overflow:hidden;
+	display:inline;
+	list-style:none;
+}
+.written .arabic ul li{
+	display:inline;
+	font-size: 22px;
+	line-height: 28px;
+	padding-right:25px;
+}
+
+.written .capital{
+	padding-top:10px;
+	width:600px;
+	text-align:left;
+}
+.written .capital ul{
+	overflow:hidden;
+	display:inline;
+	list-style:none;
+}
+.written .capital ul li{
+	display:inline;
+	font-size: 22px;
+	line-height: 28px;
+	padding-right:15px;
+	font-family:"微软雅黑","黑体";
+	font-weight:100
+}
+.margintop{
+	margin-top:30px;
+}
+.clear{
+	clear:both;
+}
+.left-ad{
+	float:left;
+	position: absolute;
+	bottom: 15px;
+	left: 20px;
+}
+.right-ad{
+	float:right;
+	position: absolute;
+	bottom: 15px;
+	right: 20px;
+}
