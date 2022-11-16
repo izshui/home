@@ -1,0 +1,84 @@
+/**
+ * @license
+ * Copyright (C) 2015 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* Pretty printing styles. Used with prettify.js. */
+
+
+/* SPAN elements with the classes below are added by prettyprint. */
+.pln { color: #e2e2e2 }  /* plain text */
+
+@media screen {
+  .str { color: #F2AF29 }  /* string content */
+  .kwd { color: #1ec0ff }  /* a keyword */
+  .com { color: #75715e }  /* a comment */
+  .typ { color: #FF5964 }  /* a type name */
+  .lit { color: #ae81ff }  /* a literal value */
+  /* punctuation, lisp open bracket, lisp close bracket */
+  .pun, .opn, .clo { color: #e2e2e2 }
+  .tag { color: #f92672 }  /* a markup tag name */
+  .atn { color: #a6e22a }  /* a markup attribute name */
+  .atv { color: #e6db74 }  /* a markup attribute value */
+  .dec, .var { color: #ae81ff }  /* a declaration; a variable name */
+  .fun { color: #ff5f2e }  /* a function name */
+}
+
+/* Use higher contrast and text-weight for printable form. */
+@media print, projection {
+  .str { color: #060 }
+  .kwd { color: #006; font-weight: bold }
+  .com { color: #600; font-style: italic }
+  .typ { color: #404; font-weight: bold }
+  .lit { color: #044 }
+  .pun, .opn, .clo { color: #440 }
+  .tag { color: #006; font-weight: bold }
+  .atn { color: #404 }
+  .atv { color: #060 }
+}
+
+/* Put a border around prettyprinted code snippets. */
+pre.prettyprint { padding: 2px; border: 1px solid #888 }
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
+  color:#75715e;
+
+} /* IE indents via margin-left */
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L4,
+li.L5,
+li.L6,
+li.L7,
+li.L8,
+li.L9{
+  list-style-type: decimal !important;
+  font-family:consolas,menlo,courier,Microsoft YaHei,monospace;
+  min-height:20px;
+  line-height:20px;
+}
+/* Alternate shading for lines */
+/*
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 { background: #eee }
+*/
